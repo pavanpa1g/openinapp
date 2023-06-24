@@ -1,0 +1,150 @@
+.login-bg-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.board-container {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 588px;
+  width: 40%;
+  height: 100%;
+}
+
+@media screen and (max-width:450px) {
+  .board-container{
+    display: none;
+  }
+}
+
+.board-heading {
+  color: #fff;
+  font-size: 72px;
+  /* font-family: Montserrat; */
+  font-weight: 700;
+}
+
+.right-bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 852px;
+  width: 60%;
+  background-color: #f5f5f5;
+}
+
+@media screen and (max-width:450px) {
+  .right-bg-container{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+}
+
+.form-bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  border-radius: 20px;
+  background: #fff;
+  width: 385px;
+  /* height: 317px; */
+  flex-shrink: 0;
+  padding: 30px;
+}
+
+.label-text {
+  color: #000;
+  font-size: 16px;
+  /* font-family: Lato; */
+}
+
+.pass-label {
+  margin-top: 10px;
+}
+
+.input-field {
+  /* width: 325px; */
+  height: 40px;
+  /* flex-shrink: 0; */
+  border-radius: 10px;
+  background: var(--field-color-darker, #eaeaea);
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+}
+
+.sign-button {
+  border-radius: 10px;
+  background: #000;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.forgot-text {
+  color: var(--link, #346bd4);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.gmail-button {
+  width: 180px;
+  height: 30px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gmail-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 445px;
+  margin-bottom: 25px;
+  margin-top: 0px;
+}
+
+.sign-head {
+  color: #000;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.sign-para-text {
+  margin-top: 0px;
+  margin-bottom: 26px;
+}
+
+.register-para {
+  color: #858585;
+  text-align: center;
+  font-size: 16px;
+}
+
+.link-text {
+  color: #346bd4;
+  cursor: pointer;
+}
+
+.google-logo {
+  width: 11.5px;
+  height: 11.5px;
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+

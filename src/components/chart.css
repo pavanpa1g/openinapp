@@ -1,0 +1,56 @@
+.guest-dot {
+  background-color: #e9a0a0;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-right: 0.2rem;
+}
+
+.user-dot {
+  background-color: #9bdd7c;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-right: 0.2rem;
+}
+
+.dot-container {
+  display: flex;
+  align-items: center;
+  margin-left: 35px;
+}
+
+.legend-container {
+  display: flex;
+  align-items: center;
+}
+
+.activities-text {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.date-para {
+  color: var(--secondary-text, #858585);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.bg-chart-container {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  
+}
+
+@media screen and (max-width:450px) {
+  .bg-chart-container{
+    width: 100%;
+  }
+}
+
+.activities-container{
+    margin-right: auto;
+}
