@@ -40,7 +40,7 @@
 
 @media screen and (max-width:450px) {
   .right-bg-container{
-    width: 100%;
+    width: 100vw;
     box-sizing: border-box;
     padding: 20px;
   }
@@ -53,10 +53,18 @@
   /* align-items: center; */
   border-radius: 20px;
   background: #fff;
-  width: 385px;
+  width: 455px;
   /* height: 317px; */
   flex-shrink: 0;
   padding: 30px;
+}
+
+@media screen and (max-width:450px) {
+  .form-bg-container{
+    width:80% ;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .label-text {
@@ -120,6 +128,24 @@
   margin-top: 0px;
 }
 
+@media screen and (max-width:450px) {
+  .gmail-button-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .google-button{
+    width: 80%;
+  }
+
+  .gmail-button{
+    width: 78%;
+    margin-top: 5px;
+    justify-content: flex-start;
+    padding-left: 16px;
+  }
+}
+
 .sign-head {
   color: #000;
   font-size: 36px;
@@ -148,5 +174,13 @@
   height: 23.5px;
   flex-shrink: 0;
   margin-right: 15px;
+}
+
+
+.inner-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 

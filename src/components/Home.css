@@ -14,7 +14,7 @@
 }
 
 .left-dash-board-container {
-  width: 10%;
+  width: 17%;
   min-height: 90vh;
   border-radius: 30px;
   background: #000;
@@ -72,6 +72,13 @@
   width: 80%;
 }
 
+@media screen and (max-width:450px) {
+  .right-home-container{
+    width: 100%;
+    padding-top: 14px;
+  }
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -116,6 +123,8 @@
     width: 100%;
     margin-top: 10px;
     margin-right: 0px;
+    height: 40px;
+    border-radius: 8px;
   }
 
   .search-input {
@@ -169,10 +178,10 @@
 
 @media screen and (max-width: 450px) {
   .cards-ul-list {
-    width: 100vw;
+    width: 100%;
     overflow-x: auto;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    /* flex-wrap: nowrap; */
+    /* white-space: nowrap; */
   }
 }
 
@@ -182,14 +191,15 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 210px;
+  width: 260px;
   border-radius: 20px;
 }
 
 @media screen and (max-width: 450px) {
   .card-list-item {
-    width: 210px;
+    width: 50%;
     margin-right: 10px;
+    flex-shrink: 0;
   }
 }
 
@@ -215,7 +225,7 @@
 .pie-chart-graph-container {
   display: flex;
   flex-direction: column;
-  width: 41%;
+  width: 48%;
   /* height: 200px; */
   border-radius: 20px;
   background: #fff;
@@ -300,4 +310,21 @@
     width: 100%;
     margin-top: 20px;
   }
+}
+
+.profile-btn{
+  border:none;
+  padding: none;
+}
+
+
+.pie-list-item{
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 10px;
+
+}
+
+.pie-ul-list{
+  padding-left: 0px;
 }

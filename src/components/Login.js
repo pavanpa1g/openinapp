@@ -36,7 +36,7 @@ const Login = () => {
         <h3 className="board-heading">Board.</h3>
       </div>
       <div className="right-bg-container">
-        <div style={{ boxSizing: "border-box" }}>
+        <div className="inner-container">
           <h1 className="sign-head">Sign In</h1>
           <p className="sign-para-text">Sign into your account</p>
 
@@ -50,7 +50,7 @@ const Login = () => {
               <p>signin with gmail</p>
             </div> */}
             
-
+            <div className="google-button">
             <LoginSocialGoogle
               client_id={
                 "405179169353-nr3ciai67bnetlaaj49kcnjnjn7273u5.apps.googleusercontent.com"
@@ -69,6 +69,7 @@ const Login = () => {
             >
               <GoogleLoginButton />
             </LoginSocialGoogle>
+            </div>
             <div className="gmail-button">
               <img
                 src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687535184/apple_1_hhnfmk.png"

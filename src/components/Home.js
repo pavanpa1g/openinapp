@@ -77,6 +77,12 @@ const Home = () => {
     { color: "#F6DC7D", title: "Custom Short Pants", percentage: "31%" },
     { color: "#EE8484", title: "Super Hoodies", percentage: "14%" },
   ];
+
+  const onClickPerson =()=>{
+    console.log("pavamn")
+    Cookies.remove('jwt_token')
+    navigate('/login')
+  }
  
   return (
     <div className="home-bg-container">
@@ -112,7 +118,7 @@ const Home = () => {
               src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
               alt="profile"
               className="person-img"
-              onClick={()=> navigate('/login')}
+              onClick={onClickPerson}
             />
           </div>
 
@@ -136,12 +142,15 @@ const Home = () => {
               className="bell-logo"
             />
 
+            <button onClick={onClickPerson} type='button' className="profile-btn">
             <img
               src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
               alt="profile"
               className="person-img"
-              onClick={()=> navigate('/login')}
+              
             />
+            </button>
+
           </div>
         </div>
 
@@ -179,14 +188,10 @@ const Home = () => {
               <div style={{ width: "200px", height: "150px" }}>
                 <Example />
               </div>
-              <ul>
+              <ul className="pie-ul-list">
                 {pieChartData.map((item, i) => (
                   <li
-                    style={{
-                      listStyle: "none",
-                      paddingLeft: "0px",
-                      marginBottom: "10px",
-                    }}
+                    className="pie-list-item"
                     key={i}
                   >
                     <div style={{ display: "flex", alignItems: "center" }}>
