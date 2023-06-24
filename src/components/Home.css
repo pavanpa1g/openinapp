@@ -282,15 +282,17 @@
   margin-top: 10px;
 }
 
-.bottom-charts-container {
-  display: "flex";
-  margin-top: "20px";
-  justify-content: "space-between";
+.bottom-charts-containers {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  justify-content: space-between;
+
 }
 
 
 @media  screen and (max-width:450px) {
-  .bottom-charts-container{
+  .bottom-charts-containers{
     display: flex;
     flex-direction: column;
   }

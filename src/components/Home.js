@@ -142,9 +142,7 @@ const Home = () => {
           <Chart />
         </div>
 
-        <div
-          className="bottom-charts-container"
-        >
+        <div className="bottom-charts-containers">
           <div className="pie-chart-graph-container">
             <div
               style={{
