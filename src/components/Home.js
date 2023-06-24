@@ -3,7 +3,12 @@ import "./Home.css";
 import Chart from "./Chart";
 import Example from "./PieChart";
 
+import {useNavigate} from 'react-router-dom'
+
 const Home = () => {
+
+  const navigate = useNavigate()
+
   const data = [
     {
       icon: "https://res.cloudinary.com/dlafvsqxz/image/upload/v1687538461/dashboard_icon_sk5od3.png",
@@ -121,6 +126,7 @@ const Home = () => {
               src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
               alt="profile"
               className="person-img"
+              onClick={()=> navigate('/login')}
             />
           </div>
         </div>
