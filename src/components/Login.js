@@ -9,20 +9,20 @@ import "./login.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const jwttoken = Cookies.get("jwt_token")
+  const jwttoken = Cookies.get("jwt_token");
 
-  const setCookies =(data)=>{
-    const {token} = data 
-    Cookies.set('jwt_token',token,{expires:30,path:'/'})
-    navigate('/')
-  }
+  const setCookies = (data) => {
+    const { access_token } = data;
+    console.log("logintoken", access_token);
+    Cookies.set("jwt_token", access_token, { expires: 30, path: "/" });
+    navigate("/");
+  };
 
-
-  useEffect(()=>{
-    if (jwttoken !== undefined){
-      navigate('/')
+  useEffect(() => {
+    if (jwttoken !== undefined) {
+      navigate("/");
     }
-  },[jwttoken,navigate])
+  }, [jwttoken, navigate]);
 
   const onLogin = (event) => {
     event.preventDefault();
@@ -40,8 +40,6 @@ const Login = () => {
           <h1 className="sign-head">Sign In</h1>
           <p className="sign-para-text">Sign into your account</p>
 
-
-
           <div className="gmail-button-container">
             {/* <div className="gmail-button" onClick={() => console.log("")}>
               <img
@@ -51,22 +49,26 @@ const Login = () => {
               />
               <p>signin with gmail</p>
             </div> */}
+            
 
-<LoginSocialGoogle
-            client_id={"405179169353-cd4qo82b09dbqdlb16mvmemp9g2a59d8.apps.googleusercontent.com"}
-            scope="openid profile email"
-            discoveryDocs="claims_supported"
-            access_type="offline"
-            onResolve={({ provider, data }) => {
-              setCookies(data)
-              console.log(provider,"pavan", data);
-            }}
-            onReject={(err) => {
-              console.log(err);
-            }}
-          >
-            <GoogleLoginButton />
-          </LoginSocialGoogle>
+            <LoginSocialGoogle
+              client_id={
+                "405179169353-nr3ciai67bnetlaaj49kcnjnjn7273u5.apps.googleusercontent.com"
+                
+              }
+              scope="openid profile email"
+              discoveryDocs="claims_supported"
+              access_type="online"
+              onResolve={({ provider, data }) => {
+                setCookies(data);
+                console.log(provider, "pavan", data);
+              }}
+              onReject={(err) => {
+                console.log(err);
+              }}
+            >
+              <GoogleLoginButton />
+            </LoginSocialGoogle>
             <div className="gmail-button">
               <img
                 src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687535184/apple_1_hhnfmk.png"
