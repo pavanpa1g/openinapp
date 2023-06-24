@@ -20,7 +20,7 @@ const Home = () => {
     if(jwtToken === undefined){
       navigate('/login')
     }
-  },[])
+  },[jwtToken,navigate])
 
   const data = [
     {
@@ -77,7 +77,7 @@ const Home = () => {
     { color: "#F6DC7D", title: "Custom Short Pants", percentage: "31%" },
     { color: "#EE8484", title: "Super Hoodies", percentage: "14%" },
   ];
-
+ 
   return (
     <div className="home-bg-container">
       <div className="left-dash-board-container">

@@ -22,7 +22,7 @@ const Login = () => {
     if (jwttoken !== undefined){
       navigate('/')
     }
-  },[])
+  },[jwttoken,navigate])
 
   const onLogin = (event) => {
     event.preventDefault();
