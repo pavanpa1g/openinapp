@@ -1,8 +1,11 @@
 import React from 'react'
 import {BrowserRouter as Router,Route, Routes} from 'react-router-dom'
 
+
 import Login from './components/Login.js'
 import Home from './components/Home.js'
+
+
 
 
 
@@ -10,9 +13,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/login' element={<Login />} />
+        <Route  path='/login' element={<Login />} />
         <Route exact path="/" element={<Home />} />
-        
       </Routes>
     </Router>
   )

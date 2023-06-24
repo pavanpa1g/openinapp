@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import Chart from "./Chart";
 import Example from "./PieChart";
+
+import Cookies from "js-cookie";
 
 import {useNavigate} from 'react-router-dom'
 
 const Home = () => {
 
   const navigate = useNavigate()
+
+  const jwtToken = Cookies.get('jwt_token')
+  console.log('token',jwtToken)
+
+
+
+  useEffect(()=>{
+    if(jwtToken === undefined){
+      navigate('/login')
+    }
+  },[])
 
   const data = [
     {
@@ -99,6 +112,7 @@ const Home = () => {
               src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
               alt="profile"
               className="person-img"
+              onClick={()=> navigate('/login')}
             />
           </div>
 
