@@ -72,8 +72,8 @@
   width: 80%;
 }
 
-@media screen and (max-width:450px) {
-  .right-home-container{
+@media screen and (max-width: 450px) {
+  .right-home-container {
     width: 100%;
     padding-top: 14px;
   }
@@ -299,34 +299,37 @@
   flex-direction: row;
   margin-top: 20px;
   justify-content: space-between;
-
 }
 
-
-@media  screen and (max-width:450px) {
-  .bottom-charts-containers{
+@media screen and (max-width: 450px) {
+  .bottom-charts-containers {
     display: flex;
     flex-direction: column;
   }
-  .pie-chart-graph-container{
+  .pie-chart-graph-container {
     width: 100%;
     margin-top: 20px;
   }
 }
 
-.profile-btn{
-  border:none;
+.profile-btn {
+  border: none;
   padding: none;
 }
 
-
-.pie-list-item{
+.pie-list-item {
   list-style: none;
   padding-left: 0px;
   margin-bottom: 10px;
-
 }
 
-.pie-ul-list{
+.pie-ul-list {
   padding-left: 0px;
+}
+
+.loader-container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }

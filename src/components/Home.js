@@ -1,26 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Chart from "./Chart";
 import Example from "./PieChart";
 
 import Cookies from "js-cookie";
 
-import {useNavigate} from 'react-router-dom'
+import { TailSpin } from "react-loader-spinner";
+
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false);
 
-  const jwtToken = Cookies.get('jwt_token')
-  console.log('token',jwtToken)
+  const jwtToken = Cookies.get("jwt_token");
+  console.log("token", jwtToken);
 
-
-
-  useEffect(()=>{
-    if(jwtToken === undefined){
-      navigate('/login')
+  useEffect(() => {
+    if (jwtToken === undefined) {
+      navigate("/login");
     }
-  },[jwtToken,navigate])
+    setIsLoading(true);
+  }, [jwtToken, navigate]);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000);
 
   const data = [
     {
@@ -78,168 +84,185 @@ const Home = () => {
     { color: "#EE8484", title: "Super Hoodies", percentage: "14%" },
   ];
 
-  const onClickPerson =()=>{
-    console.log("pavamn")
-    Cookies.remove('jwt_token')
-    navigate('/login')
-  }
- 
+  const onClickPerson = () => {
+    console.log("pavamn");
+    Cookies.remove("jwt_token");
+    navigate("/login");
+  };
+
   return (
-    <div className="home-bg-container">
-      <div className="left-dash-board-container">
-        <h1 className="Board-head-text">Board.</h1>
-        <ul className="ul-list">
-          {data.map((item, i) => (
-            <li key={i} className="list-item">
-              <img
-                src={item.icon}
-                alt={item.title}
-                className="dashboard-icon"
-              />
-              <p className="dashboard-side-text">{item.title}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="help-text">Help</p>
-        <p className="help-text">Contact us</p>
-      </div>
-      <div className="right-home-container">
-        <div className="header-container">
-          <p className="head-dash-board">Dashboard</p>
-
-          <div className="sm-bell-profile-container">
-            <img
-              src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/Vector_pryf65.png"
-              alt="bell"
-              className="bell-logo"
-            />
-
-            <img
-              src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
-              alt="profile"
-              className="person-img"
-              onClick={onClickPerson}
-            />
-          </div>
-
-          <div className="search-input-container">
-            <input
-              type="search"
-              placeholder="Search..."
-              className="search-input"
-            />
-            <img
-              src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1686480223/search_hmt76q.png"
-              alt="search"
-              className="search-icon"
-            />
-          </div>
-
-          <div className="lg-bell-profile-container">
-            <img
-              src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/Vector_pryf65.png"
-              alt="bell"
-              className="bell-logo"
-            />
-
-            <button onClick={onClickPerson} type='button' className="profile-btn">
-            <img
-              src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
-              alt="profile"
-              className="person-img"
-              
-            />
-            </button>
-
-          </div>
+    <>
+      {" "}
+      {isLoading ? (
+        <div className="loader-container">
+          <TailSpin
+            height="50"
+            width="50"
+            color="#4fa94d"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
         </div>
+      ) : (
+        <div className="home-bg-container">
+          <div className="left-dash-board-container">
+            <h1 className="Board-head-text">Board.</h1>
+            <ul className="ul-list">
+              {data.map((item, i) => (
+                <li key={i} className="list-item">
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    className="dashboard-icon"
+                  />
+                  <p className="dashboard-side-text">{item.title}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="help-text">Help</p>
+            <p className="help-text">Contact us</p>
+          </div>
+          <div className="right-home-container">
+            <div className="header-container">
+              <p className="head-dash-board">Dashboard</p>
 
-        <ul className="cards-ul-list">
-          {cardData.map((item, i) => (
-            <li
-              className="card-list-item"
-              style={{ backgroundColor: `${item.bgColor}` }}
-              key={i}
-            >
-              <img src={item.icon} alt={item.title} className="card-icon" />
-              <p className="card-title">{item.title}</p>
-              <p className="card-count">{item.count}</p>
-            </li>
-          ))}
-        </ul>
-        <div className="sm-chart-container">
-          <Chart />
-        </div>
+              <div className="sm-bell-profile-container">
+                <img
+                  src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/Vector_pryf65.png"
+                  alt="bell"
+                  className="bell-logo"
+                />
 
-        <div className="bottom-charts-containers">
-          <div className="pie-chart-graph-container">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "space-between",
-                justifyContent: "space-between",
-              }}
-            >
-              <h1 className="product-text">Top Products</h1>
-              <p className="date-text-para">May - June 2021</p>
-            </div>
-
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div style={{ width: "200px", height: "150px" }}>
-                <Example />
+                <img
+                  src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
+                  alt="profile"
+                  className="person-img"
+                  onClick={onClickPerson}
+                />
               </div>
-              <ul className="pie-ul-list">
-                {pieChartData.map((item, i) => (
-                  <li
-                    className="pie-list-item"
-                    key={i}
-                  >
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      <div
-                        className="guest-dot"
-                        style={{ backgroundColor: `${item.color}` }}
-                      ></div>
-                      <h1 className="basic-text">{item.title}</h1>
-                    </div>
-                    <p className="percentage-text">{item.percentage}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
 
-          <div className="pie-chart-graph-container">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "space-between",
-                justifyContent: "space-between",
-                marginBottom: "25px",
-              }}
-            >
-              <h1 className="product-text">Today’s schedule</h1>
-              <p className="date-text-para">See All</p>
-            </div>
+              <div className="search-input-container">
+                <input
+                  type="search"
+                  placeholder="Search..."
+                  className="search-input"
+                />
+                <img
+                  src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1686480223/search_hmt76q.png"
+                  alt="search"
+                  className="search-icon"
+                />
+              </div>
 
-            <div className="schedule-container">
-              <h1 className="meet-text-head">
-                Meeting with suppliers from Kuta Bali
-              </h1>
-              <p className="time-text">14.00-15.00</p>
-              <p className="sunset-text">at Sunset Road, Kuta, Bali</p>
+              <div className="lg-bell-profile-container">
+                <img
+                  src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/Vector_pryf65.png"
+                  alt="bell"
+                  className="bell-logo"
+                />
+
+                <button
+                  onClick={onClickPerson}
+                  type="button"
+                  className="profile-btn"
+                >
+                  <img
+                    src="https://res.cloudinary.com/dlafvsqxz/image/upload/v1687540472/image_1_ceelib.png"
+                    alt="profile"
+                    className="person-img"
+                  />
+                </button>
+              </div>
             </div>
 
-            <div className="schedule-below-container">
-              <h1 className="meet-text-head">
-                Check operation at Giga Factory 1
-              </h1>
-              <p className="time-text">18.00-20.00</p>
-              <p className="sunset-text">at Central Jakarta </p>
+            <ul className="cards-ul-list">
+              {cardData.map((item, i) => (
+                <li
+                  className="card-list-item"
+                  style={{ backgroundColor: `${item.bgColor}` }}
+                  key={i}
+                >
+                  <img src={item.icon} alt={item.title} className="card-icon" />
+                  <p className="card-title">{item.title}</p>
+                  <p className="card-count">{item.count}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="sm-chart-container">
+              <Chart />
+            </div>
+
+            <div className="bottom-charts-containers">
+              <div className="pie-chart-graph-container">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "space-between",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <h1 className="product-text">Top Products</h1>
+                  <p className="date-text-para">May - June 2021</p>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <div style={{ width: "200px", height: "150px" }}>
+                    <Example />
+                  </div>
+                  <ul className="pie-ul-list">
+                    {pieChartData.map((item, i) => (
+                      <li className="pie-list-item" key={i}>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <div
+                            className="guest-dot"
+                            style={{ backgroundColor: `${item.color}` }}
+                          ></div>
+                          <h1 className="basic-text">{item.title}</h1>
+                        </div>
+                        <p className="percentage-text">{item.percentage}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="pie-chart-graph-container">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "space-between",
+                    justifyContent: "space-between",
+                    marginBottom: "25px",
+                  }}
+                >
+                  <h1 className="product-text">Today’s schedule</h1>
+                  <p className="date-text-para">See All</p>
+                </div>
+
+                <div className="schedule-container">
+                  <h1 className="meet-text-head">
+                    Meeting with suppliers from Kuta Bali
+                  </h1>
+                  <p className="time-text">14.00-15.00</p>
+                  <p className="sunset-text">at Sunset Road, Kuta, Bali</p>
+                </div>
+
+                <div className="schedule-below-container">
+                  <h1 className="meet-text-head">
+                    Check operation at Giga Factory 1
+                  </h1>
+                  <p className="time-text">18.00-20.00</p>
+                  <p className="sunset-text">at Central Jakarta </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
