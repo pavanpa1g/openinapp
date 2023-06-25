@@ -124,6 +124,8 @@
     margin-top: 10px;
     margin-right: 0px;
     height: 40px;
+    display: flex;
+    align-items: center;
     border-radius: 8px;
   }
 

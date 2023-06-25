@@ -7,6 +7,7 @@ import Home from './components/Home.js'
 
 
 import './App.css'
+import PageNotFound from './components/PageNotFound.js'
 
 
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route  path='/login' element={<Login />} />
         <Route exact path="/" element={<Home />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
   )
